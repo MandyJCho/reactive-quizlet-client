@@ -1,0 +1,25 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "document": true,
+    "window": true,
+    "URLSearchParams": true,
+    "Object": true
+  },
+  "rules": {
+    "no-trailing-spaces": [2, { "skipBlankLines": true }],
+    "object-curly-spacing": 1 ,
+    "react/no-unused-prop-types": 1,
+    "react/jsx-boolean-value": 0,
+    "react/require-default-props": 0,
+    "react/jsx-no-bind": [1, {
+      "ignoreRefs": true
+    }]
+  }
+}
