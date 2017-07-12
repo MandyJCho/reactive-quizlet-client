@@ -1,0 +1,28 @@
+import React from 'react';
+import PropTypes from 'prop-types'
+
+import DeckContainer from './containers/DeckContainer';
+
+const propTypes = {
+  name: PropTypes.string.isRequired,
+  cards: PropTypes.arrayOf(PropTypes.shape({
+    term: PropTypes.string,
+    definition: PropTypes.string,
+  })),
+};
+
+const defaultProps = {
+  name: 'Study Set Name',
+  cards: [{term: 'term', definition: 'definition'}],
+};
+
+export default function StudySetComponent() {
+  return (
+    <DeckContainer>
+
+    </DeckContainer>
+  );
+}
+
+StudySetComponent.propTypes = propTypes;
+StudySetComponent.defaultProps = defaultProps;
