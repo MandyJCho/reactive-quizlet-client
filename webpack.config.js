@@ -3,7 +3,7 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 
-const rules = [
+const ruleSet = [
   {
     enforce: 'pre',
     test: /\.js(x)?$/,
@@ -14,9 +14,6 @@ const rules = [
     test: /\.js(x)?$/,
     exclude: /node_modules/,
     loader: 'babel-loader',
-    query: {
-      presets: ['react', 'es2016'],
-    },
   },
 ];
 
@@ -29,11 +26,14 @@ module.exports = {
     filename: 'bundle.js',
   },
   module: {
-    rules
+    rules: ruleSet,
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   },
   plugins: [
     new HTMLWebpackPlugin({
-      title: 'Reactive',
+      title: 'Reactive Quizlet',
       template: path.join(__dirname, 'src/index.tmpl.html'),
       inject: true,
     }),

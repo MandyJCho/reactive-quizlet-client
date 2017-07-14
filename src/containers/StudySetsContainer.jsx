@@ -1,16 +1,22 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-export default class StudySetsContainer extends Component {
+import SetComponent from '../components/SetComponent';
+
+export default class StudySetsContainer extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      studySetsList: ['biology', 'chemistry', 'algorithms'],
+    };
   }
+
+  renderSetCards = () => this.state.studySetsList.map(studySet =>
+    <SetComponent props={studySet} />);
 
   render() {
+    const setComponentList = this.renderSetCards();
     return (
-      <StudySetComponent>
-
-      </StudySetComponent>
+      { setComponentList }
     );
   }
-
 }
