@@ -1,3 +1,4 @@
+/*
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
@@ -26,3 +27,4 @@ export default class DeckContainer extends Component {
 
 DeckContainer.propTypes = propTypes;
 DeckContainer.defaultProps = defaultProps;
+*/

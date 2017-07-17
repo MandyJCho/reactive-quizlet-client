@@ -1,7 +1,5 @@
 import React from 'react';
 
-export default function SetComponent(props) {
-  return (
-    <div>{props}</div>
-  );
-}
+export default () => (
+  console.log('fuck')//<pre>Header</pre>
+)

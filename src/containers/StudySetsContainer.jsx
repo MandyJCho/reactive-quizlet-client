@@ -1,6 +1,7 @@
 import React from 'react';
+import uuid from 'uuid/v1'
 
-import SetComponent from '../components/SetComponent';
+import StudySetComponent from '../components/StudySetComponent';
 
 export default class StudySetsContainer extends React.Component {
   constructor(props) {
@@ -10,13 +11,16 @@ export default class StudySetsContainer extends React.Component {
     };
   }
 
-  renderSetCards = () => this.state.studySetsList.map(studySet =>
-    <SetComponent props={studySet} />);
+  renderSetCards = () => this.state.studySetsList.map(studySet => console.log('test'))
+    //<SetComponent props={studySet} key={uuid()}/>)
 
   render() {
-    const setComponentList = this.renderSetCards();
+/*    const setComponentList = this.renderSetCards();
+    console.log(setComponentList);
+    return <div>Set component</div>*/
+
     return (
-      { setComponentList }
+      <StudySetComponent/>
     );
   }
 }
