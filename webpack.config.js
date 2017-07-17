@@ -3,39 +3,48 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 
-const ruleSet = [
+const loaders = [
   {
     enforce: 'pre',
-    test: /\.js(x)?$/,
+    test: /\.jsx?$/,
     exclude: /node_modules/,
     loader: 'eslint-loader',
   },
   {
-    test: /\.js(x)?$/,
+    test: /\.jsx?$/,
     exclude: /node_modules/,
     loader: 'babel-loader',
-  },
+    include: path.resolve(__dirname, 'src'),
+    query: {
+      presets: ['es2016', 'react'],
+      plugins: ['transform-class-properties']
+    }
+  }
 ];
 
 module.exports = {
   entry: {
-    main: ['./src/index.jsx'],
+    main: [path.resolve(__dirname, 'src/index.jsx')],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   module: {
-    rules: ruleSet,
+    rules: loaders,
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx', 'json'],
+    alias: {
+      Components : path.resolve(__dirname, 'src/components/'),
+      Containers : path.resolve(__dirname, 'src/containers/')
+    }
   },
   plugins: [
     new HTMLWebpackPlugin({
       title: 'Reactive Quizlet',
       template: path.join(__dirname, 'src/index.tmpl.html'),
       inject: true,
-    }),
+    })
   ]
 }
