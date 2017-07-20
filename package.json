@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --progress --colors --hot",
     "fix": "eslint ./src/ --fix ; webpack-dev-server --progress --colors --hot ",
+    "doc": "documentation build ./src/** docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -37,6 +38,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-es2016": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "documentation": "^4.0.0-rc.1",
     "eslint": "^4.2.0",
     "eslint-config-airbnb": "^15.0.2",
     "eslint-loader": "^1.9.0",

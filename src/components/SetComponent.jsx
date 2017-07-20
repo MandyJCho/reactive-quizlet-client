@@ -19,7 +19,10 @@ const defaultProps = {
 
 export default function StudySetComponent(props) {
   return (
-    <div>{props.name}</div>
+    <div>
+      <div>{props.name}</div>
+      <div>{props.children}</div>
+    </div>
   );
 }
 

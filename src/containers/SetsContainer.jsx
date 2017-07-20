@@ -1,7 +1,7 @@
 import React from 'react';
 import uuid from 'uuid/v1';
 
-import Test from '../components/SetComponent';
+import SetComponent from '../components/SetComponent';
 // import StudySetComponent from '../components/StudySetComponent';
 
 export default class StudySetsContainer extends React.Component {
@@ -13,10 +13,9 @@ export default class StudySetsContainer extends React.Component {
   }
 
   renderSetCards = () => this.state.studySetsList.map(studySet =>
-    <Test name={studySet} key={uuid()}>{studySet}</Test>);
+    <SetComponent name={studySet} key={uuid()}>{studySet}</SetComponent>);
 
   render() {
-    console.log(this.renderSetCards());
     return (
       <div>
         {this.renderSetCards()}
