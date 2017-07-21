@@ -1,14 +1,15 @@
-import {schema} from 'normalizr';
+import {normalize, schema} from 'normalizr';
+import {}
 
-const userSchema = schema.Entity('user');
-const setSchema = schema.Entity('set');
-const cardSchema = schema.Entity('card');
+// Create schema for user object
+export const userSchema = schema.Entity('user', {});
 
-// a user will have a list of sets
-userSchema.define({
-  sets: [setSchema],
-});
+// Create schema for card object
+export const cardSchema = schema.Entity('card');
 
-setSchema.define({
 
+// Create a relational relationship schema for sets
+export const setSchema = schema.Entity('set', {
+  user: userSchema,
+  cards: [cardSchema],
 });
