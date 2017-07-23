@@ -1,9 +1,9 @@
 const DENORM_STORE = 'DENORM_STORE';
 
-function getDenormalizedState(order) {
+function getDenormalizedState(entity) {
   return {
     type: DENORM_STORE,
-    order
+    entity
   }
 }
 
