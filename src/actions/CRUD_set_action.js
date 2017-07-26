@@ -1,31 +1,24 @@
-// Action type
-const CRUD = {
-  CREATE_SET: 'CREATE_SET',
-  UPDATE_SET: 'UPDATE_SET',
-  DELETE_SET: 'DELETE_SET',
-};
+import SET from './ActionTypes';
 
 // Action Creators
-function createSetAC(setName) {
+export function createSetAC(setName) {
   return {
-    type: CRUD.CREATE_SET,
+    type: SET.CREATE_SET,
     setName,
   };
 }
 
-function updateSetAC(setID, updatedSet) {
+export function updateSetAC(setID, updatedSet) {
   return {
-    type: CRUD.UPDATE_SET,
+    type: SET.UPDATE_SET,
     setID,
     updatedSet,
   };
 }
 
-function deleteSetAC(setID) {
+export function deleteSetAC(setID) {
   return {
-    type: CRUD.DELETE_SET,
+    type: SET.DELETE_SET,
     setID,
   };
 }
-
-export { CRUD, createSetAC, updateSetAC, deleteSetAC };
