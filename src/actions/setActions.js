@@ -1,24 +1,24 @@
 import SET from './ActionTypes';
 
 // Action Creators
-export function createSetAC(setName) {
+export function createSetAC(title) {
   return {
     type: SET.CREATE_SET,
-    setName,
+    title
   };
 }
 
-export function updateSetAC(setID, updatedSet) {
+export function updateSetAC(id, newTitle) {
   return {
     type: SET.UPDATE_SET,
-    setID,
-    updatedSet,
+    id,
+    newTitle,
   };
 }
 
-export function deleteSetAC(setID) {
+export function deleteSetAC(id) {
   return {
     type: SET.DELETE_SET,
-    setID,
+    id,
   };
 }
