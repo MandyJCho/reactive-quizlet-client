@@ -13,7 +13,7 @@ export function updateSetAC(id, newTitle) {
     type: SET.UPDATE_SET,
     id,
     newTitle,
-  };
+  };c
 }
 
 export function deleteSetAC(id) {

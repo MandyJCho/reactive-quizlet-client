@@ -1,0 +1,6 @@
+TODO:
+- learn about subscribers
+- figure out schemas
+- add other reducers
+- research graphql oor normalizr or react-orm to normalize
+- integrate reselector
