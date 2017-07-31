@@ -1,4 +1,4 @@
-import { createActions } from 'redux-action';
+import { createActions } from 'redux-actions';
 
 export const set = createActions({
   SET: {
@@ -13,5 +13,3 @@ export const set = createActions({
     ],
   },
 });
-
-console.log(set);

@@ -7,14 +7,17 @@ import SET from '../actions/ActionTypes';
 
 const defaultState = {};
 
-function addSet(state = defaultState, action) {
-  let initialState = Immutable(state);
-  return _.assign;
-}
+let addSet = (state = defaultState, action) =>
+  (_.assign(Immutable(state), { [uuid()]: action.payload }));
 
-function updateSet
+let updateSet = (state = defaultState, action) =>
+  ( _.assign(Immutable(state), action.payload));
+
+let deleteSet = (state = defaultState, action) =>
+  ( _.omit(Immutable(state), action.payload));
 
 export default set = handleActions({
   [SET.CREATE]: addSet(state, action),
-  [SET.UPDATE]:
+  [SET.UPDATE]: updateSet(state, action),
+  [SET.DELETE]: deleteSet(state, action),
 });
