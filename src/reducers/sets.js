@@ -1,4 +1,6 @@
 import _ from 'lodash';
+import { Immutable } from 'seamless-immutable';
+import { handleAction} from 'redux-action';
 
 import SET from '../actions/ActionTypes';
 

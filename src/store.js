@@ -1,12 +1,15 @@
 import { createStore } from 'redux';
 
+import actionCreators from './actions/ActionCreators';
 import rootReducer from './reducers/reducers';
 
 let store = createStore(rootReducer);
 
-// eventually add hydration from server state
-import createSetAC from './actions/setActions';
-
+// initial state
 console.log(store.getState());
 
-store.dispatch(createSetAC('DRAGON'));
+// eventually add hydration from server state
+export default function add() {
+  store.dispatch(actionCreators.SET.CREATE('DRAGON'));
+  console.log(store.getState());
+};

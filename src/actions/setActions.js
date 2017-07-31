@@ -2,7 +2,7 @@ import { createActions } from 'redux-action';
 
 import CRUD from './ActionTypes';
 
-export const setActionCreators = createActions({
+export const set = createActions({
   SET: {
     [CRUD.CREATE]: [
       title => title,
