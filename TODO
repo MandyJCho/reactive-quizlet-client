@@ -1,6 +1,7 @@
 TODO:
-- learn about subscribers
+X learn about subscribers
 - figure out schemas
 - add other reducers
-- research graphql oor normalizr or react-orm to normalize
+- research graphql
 - integrate reselector
+- connect set with store and subscribe
