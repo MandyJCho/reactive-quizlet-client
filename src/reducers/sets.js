@@ -1,19 +1,20 @@
 import _ from 'lodash';
 import { Immutable } from 'seamless-immutable';
-import { handleAction} from 'redux-action';
+import { handleActions } from 'redux-actions';
+import uuid from 'uuid/v1';
 
 import SET from '../actions/ActionTypes';
 
-function addSet(state, title) {
-  return {...state, title};
+const defaultState = {};
+
+function addSet(state = defaultState, action) {
+  let initialState = Immutable(state);
+  return _.assign;
 }
 
-export default function sets(state = [], action) {
-  switch(action.type) {
-    case SET.CREATE_SET :
-      return addSet(state, action.title)
-    default:
-      return state;
-  }
-}
+function updateSet
 
+export default set = handleActions({
+  [SET.CREATE]: addSet(state, action),
+  [SET.UPDATE]:
+});

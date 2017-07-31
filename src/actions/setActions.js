@@ -1,17 +1,17 @@
 import { createActions } from 'redux-action';
 
-import CRUD from './ActionTypes';
-
 export const set = createActions({
   SET: {
-    [CRUD.CREATE]: [
+    CREATE: [
       title => title,
     ],
-    [CRUD.UPDATE]: [
+    UPDATE: [
       (id, newTitle) => {id, newTitle},
     ],
-    [CRUD.DELETE]: [
+    DELETE: [
       id => id,
     ],
   },
 });
+
+console.log(set);
