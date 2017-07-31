@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
 
 import StudySetsContainer from './containers/SetsContainer';
@@ -19,10 +18,6 @@ function Quizlet() {
       </MuiThemeProvider>
 
       <StudySetsContainer />
-
-      <MuiThemeProvider>
-        <RaisedButton backgroundColor="primary">+</RaisedButton>
-      </MuiThemeProvider>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import sets from './sets';
+import set from './set';
 
 export default rootReducer = combineReducers(
-  sets,
+  set,
 );
