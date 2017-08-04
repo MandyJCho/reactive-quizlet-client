@@ -1,5 +1,6 @@
 import _ from 'lodash';
 
-export default function getNamespaceActions(namespace, funcs) {
-  return _.map(funcs, func => `${namespace}/${func}`);
+export default function getNamespaceActions(namespace, actions) {
+  const namedActions =  _.map(actions, action => [action, `${namespace}/${action}`]);
+  return _.fromPairs(namedActions);
 }

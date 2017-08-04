@@ -1,10 +1,15 @@
+import SET from './ActionTypes';
+import setType from '../utils/setType';
 
 
+export default function addSet(payload) {
+  return setType(payload, SET.CREATE);
+}
 
-export default createActions({
-  SET: {
-    CREATE: title => title,
-    UPDATE: (id, newTitle) => { id, newTitle},
-    DELETE: id => id,
-  },
-});
+export default function updateSet(payload) {
+  return setType(payload, SET.UPDATE);
+}
+
+export default function deleteSet(payload) {
+  return setType(payload, SET.DELETE);
+}
