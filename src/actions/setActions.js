@@ -1,15 +1,10 @@
-import { createActions } from 'redux-actions';
 
-export const set = createActions({
+
+
+export default createActions({
   SET: {
-    CREATE: [
-      title => title,
-    ],
-    UPDATE: [
-      (id, newTitle) => {id, newTitle},
-    ],
-    DELETE: [
-      id => id,
-    ],
+    CREATE: title => title,
+    UPDATE: (id, newTitle) => { id, newTitle},
+    DELETE: id => id,
   },
 });

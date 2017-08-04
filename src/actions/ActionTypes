@@ -1,0 +1,12 @@
+import getNamespaceActions from '../utils/getNamespaceActions';
+
+// CRUD
+export const CRUD = {
+  CREATE: 'CREATE',
+  READ: 'READ',
+  UPDATE: 'UPDATE',
+  DELETE: 'DELETE',
+};
+
+// Namespaces
+export const SET = getNamespaceActions('SET', CRUD);
