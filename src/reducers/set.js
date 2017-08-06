@@ -1,12 +1,12 @@
 import _ from 'lodash';
 import { Immutable } from 'seamless-immutable';
-
 import uuid from 'uuid/v1';
 
-import SetAction from '../actions/setActions';
+import SET from '../actions/ActionTypes';
+
 
 const defaultState = {};
-const namespace = 'SET/';
+
 const addSet = (state = defaultState, action) =>
   (_.merge({}, Immutable(state), { [uuid()]: action.payload }));
 
@@ -16,8 +16,22 @@ const updateSet = (state = defaultState, action) =>
 const deleteSet = (state = defaultState, action) =>
   (_.omit({}, Immutable(state), action.payload));
 
-export default handleActions({
-  [`${namespace}CREATE`]: addSet(state, SetAction),
-  [`${namespace}UPDATE`]: updateSet(state, SetAction),
-  [`${namespace}DELETE`]: deleteSet(state, SetAction),
-});
+
+export default function set(state, action) {
+  let nextState;
+  switch (action.type) {
+    case (SET.CREATE):
+      nextState = addSet(state, action);
+      break;
+    case (SET.UPDATE):
+      nextState = updateSet(state, action);
+      break;
+    case (SET.DELETE):
+      nextState = deleteSet(state, action);
+      break;
+    default:
+      nextState = state;
+  }
+
+  return nextState;
+}

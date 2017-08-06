@@ -1,15 +1,15 @@
 import SET from './ActionTypes';
-import setType from '../utils/setType';
+import initializeType from '../utils/initializeType';
 
 
 export function addSet(payload) {
-  return setType(payload, SET.CREATE);
+  return initializeType(payload, SET.CREATE);
 }
 
 export function updateSet(payload) {
-  return setType(payload, SET.UPDATE);
+  return initializeType(payload, SET.UPDATE);
 }
 
 export function deleteSet(payload) {
-  return setType(payload, SET.DELETE);
+  return initializeType(payload, SET.DELETE);
 }
