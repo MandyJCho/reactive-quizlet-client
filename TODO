@@ -3,5 +3,5 @@ X learn about subscribers
 - figure out schemas
 - add other reducers
 - research graphql
-- integrate reselector
+- integrate reselect
 - connect set with store and subscribe

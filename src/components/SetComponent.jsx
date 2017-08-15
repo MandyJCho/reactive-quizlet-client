@@ -18,6 +18,7 @@ const defaultProps = {
 };
 
 export default function StudySetComponent(props) {
+  console.log(`${props.name} has rendered`);
   return (
     <div>
       <div>{props.name}</div>

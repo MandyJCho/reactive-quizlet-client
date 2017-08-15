@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import uuid from 'uuid/v1';
 
 import SetComponent from '../components/SetComponent';
 import ButtonComponent from '../components/ButtonComponent';
 
-export default class StudySetsContainer extends React.Component {
+class StudySetsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,6 +13,10 @@ export default class StudySetsContainer extends React.Component {
     };
   }
 
+  componentDidUpdate = (prevProps, prevState) => {
+    console.log('Set container has rerendered');
+    return Object.assign({}, prevProps, prevState);
+  };
 
   handleClick = () => console.log('click');
 
@@ -27,3 +32,16 @@ export default class StudySetsContainer extends React.Component {
     );
   }
 }
+
+function mapStateToProps(state, ownProps) {
+  
+}
+
+function mapDispatchToState(dispatch, ownProps) {
+
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToState,
+)(StudySetsContainer);
