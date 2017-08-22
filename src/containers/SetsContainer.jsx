@@ -4,6 +4,7 @@ import uuid from 'uuid/v1';
 
 import SetComponent from '../components/SetComponent';
 import ButtonComponent from '../components/ButtonComponent';
+import setActions from '../actions/setActions';
 
 class StudySetsContainer extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class StudySetsContainer extends React.Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  
+  return state.set;
 }
 
 function mapDispatchToState(dispatch, ownProps) {
