@@ -15,9 +15,6 @@ injectTapEventPlugin();
 // eslint-disable-next-line prefer-const
 let store = createStore(rootReducer);
 
-// initial state
-console.log(store.getState());
-
 const mount = document.getElementById('root');
 
 function Quizlet() {

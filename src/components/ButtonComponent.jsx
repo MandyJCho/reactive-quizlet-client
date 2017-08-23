@@ -9,7 +9,6 @@ const propTypes = {
 };
 
 const defaultProps = {
-  // onClick: () => console.log('Clicked'),
   text: '',
 };
 

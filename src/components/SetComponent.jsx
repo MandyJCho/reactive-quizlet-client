@@ -6,15 +6,15 @@ import PropTypes from 'prop-types';
 const propTypes = {
   children: PropTypes.string,
   name: PropTypes.string,
-  cards: PropTypes.arrayOf(PropTypes.shape({
+  /* cards: PropTypes.arrayOf(PropTypes.shape({
     term: PropTypes.string,
     definition: PropTypes.string,
-  })),
+  })), */
 };
 
 const defaultProps = {
   name: 'Study Set Name',
-  cards: [{ term: 'term', definition: 'definition' }],
+  // cards: [{ term: 'term', definition: 'definition' }],
 };
 
 export default function StudySetComponent(props) {

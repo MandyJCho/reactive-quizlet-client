@@ -1,4 +1,4 @@
-import SET from './ActionTypes';
+import { SET } from './ActionTypes';
 import initializeType from '../utils/initializeType';
 
 

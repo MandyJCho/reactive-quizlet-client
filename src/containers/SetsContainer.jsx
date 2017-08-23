@@ -20,7 +20,10 @@ class StudySetsContainer extends React.Component {
     return Object.assign({}, prevProps, prevState);
   };
 
-  handleClick = () => console.log('click');
+  handleClick = () => {
+    console.log('click!');
+    return setActionCreators.addSet({ title: 'dragon' });
+  }
 
   handleCardRendering = () => this.state.studySetsList.map(studySet =>
     <SetComponent name={studySet} key={uuid()} />);
@@ -29,7 +32,7 @@ class StudySetsContainer extends React.Component {
     return (
       <div>
         { this.handleCardRendering() }
-        <ButtonComponent onClick={this.handleClick()} text="+" />
+        <ButtonComponent onClick={this.handleClick} text="+" />
       </div>
     );
   }
