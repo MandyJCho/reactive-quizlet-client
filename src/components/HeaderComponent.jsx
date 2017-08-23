@@ -5,7 +5,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 
 const propTypes = {
-  muiTheme: PropTypes.node,
+  muiTheme: PropTypes.object,
   title: PropTypes.string,
   showMenuIconButton: PropTypes.bool,
 };

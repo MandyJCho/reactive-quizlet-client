@@ -1,10 +1,11 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import uuid from 'uuid/v1';
 
 import SetComponent from '../components/SetComponent';
 import ButtonComponent from '../components/ButtonComponent';
-import setActions from '../actions/setActions';
+import setActions from '../actions/setActionCreators';
 
 class StudySetsContainer extends React.Component {
   constructor(props) {
@@ -34,15 +35,15 @@ class StudySetsContainer extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   return state.set;
 }
 
-function mapDispatchToState(dispatch, ownProps) {
-
+function mapDispatchToProps(dispatch) {
+  return dispatch;
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToState,
+  mapDispatchToProps,
 )(StudySetsContainer);

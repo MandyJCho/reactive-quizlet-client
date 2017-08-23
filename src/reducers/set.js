@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { Immutable } from 'seamless-immutable';
 import uuid from 'uuid/v1';
 
-import SET from '../actions/ActionTypes';
+import { SET } from '../actions/ActionTypes';
 
 
 const defaultState = {};
@@ -17,7 +17,7 @@ const deleteSet = (state = defaultState, action) =>
   (_.omit({}, Immutable(state), action.payload));
 
 
-export default function set(state, action) {
+export default function set(state = defaultState, action) {
   let nextState;
   switch (action.type) {
     case (SET.CREATE):
