@@ -5,7 +5,7 @@ import uuid from 'uuid/v1';
 
 import SetComponent from '../components/SetComponent';
 import ButtonComponent from '../components/ButtonComponent';
-import setActions from '../actions/setActionCreators';
+import * as setActionCreators from '../actions/setActionCreators';
 
 class StudySetsContainer extends React.Component {
   constructor(props) {
@@ -40,7 +40,9 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return dispatch;
+  return bindActionCreators({
+    addSet: setActionCreators.addSet,
+  }, dispatch);
 }
 
 export default connect(

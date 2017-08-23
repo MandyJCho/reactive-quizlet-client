@@ -17,7 +17,7 @@ const loaders = [
     include: path.resolve(__dirname, 'src'),
     query: {
       presets: ['es2016', 'react'],
-      plugins: ['transform-class-properties']
+      plugins: ['transform-class-properties', 'transform-object-rest-spread']
     }
   }
 ];
