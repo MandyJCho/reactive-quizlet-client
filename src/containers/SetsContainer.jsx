@@ -23,7 +23,7 @@ class StudySetsContainer extends React.Component {
   handleClick = () => {
     console.log('click!');
     return setActionCreators.addSet({ title: 'dragon' });
-  }
+  };
 
   handleCardRendering = () => this.state.studySetsList.map(studySet =>
     <SetComponent name={studySet} key={uuid()} />);
@@ -44,7 +44,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({
-    addSet: setActionCreators.addSet,
+    setActionCreators.addSet,
   }, dispatch);
 }
 
