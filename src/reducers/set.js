@@ -16,18 +16,15 @@ function addSet(state = defaultState, action) {
   }));
 }
 
-const updateSet = (state = defaultState, action) => {
-  const newState = state;
-  const index = getIndex(action.payload.id, newState);
-  return newState.splice(index, 1, action.payload);
-};
-
-const deleteSet = (state = defaultState, action) => {
+const modifySet = (state = defaultState, action) => {
   const newState = state;
   const index = getIndex(action.payload.id, newState);
 
-  return newState.splice(index, 1);
+  return action.type === SET.UPDATE ?
+    newState.splice(index, 1, action.payload)
+    : newState.splice(index, 1);
 };
+
 
 export default function set(state = defaultState, action) {
   let nextState;
@@ -36,10 +33,8 @@ export default function set(state = defaultState, action) {
       nextState = addSet(state, action);
       break;
     case (SET.UPDATE):
-      nextState = updateSet(state, action);
-      break;
     case (SET.DELETE):
-      nextState = deleteSet(state, action);
+      nextState = modifySet(state, action);
       break;
     default:
       nextState = state;
