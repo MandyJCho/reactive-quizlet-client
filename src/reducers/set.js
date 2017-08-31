@@ -1,18 +1,24 @@
 import _ from 'lodash';
-import Immutable from 'seamless-immutable';
 import uuid from 'uuid/v1';
 
 import { SET } from '../actions/ActionTypes';
 
 
-const defaultState = {};
+const defaultState = [];
 
 function addSet(state = defaultState, action) {
-  return (_.merge({}, Immutable(state), {[uuid()]: action.payload}));
+  return (_.concat(state, {
+    id: uuid(),
+    title: action.payload,
+  }));
 }
 
-const updateSet = (state = defaultState, action) =>
-  (_.merge({}, Immutable(state), action.payload));
+const updateSet = (state = defaultState, action) => {
+  const newState = state;
+  const index = newState.findIndex(studySet => (studySet.id === action.payload.id));
+  
+  return newState.splice(index, 1, action.payload);
+};
 
 const deleteSet = (state = defaultState, action) =>
   (_.omit({}, Immutable(state), action.payload));

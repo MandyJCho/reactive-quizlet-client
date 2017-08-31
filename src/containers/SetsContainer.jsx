@@ -11,9 +11,9 @@ class StudySetsContainer extends React.Component {
   constructor(props) {
     super(props);
     console.log(this.props);
-    /* this.state = {
+    this.state = {
       studySetsList: ['biology', 'chemistry', 'algorithms'],
-    }; */
+    };
   }
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -38,7 +38,7 @@ class StudySetsContainer extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return state.set;
+  return {set: state.set};
 }
 
 const propTypes = {
