@@ -1,18 +1,19 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import uuid from 'uuid/v1';
+import uuid from 'uuid/v1'; // get rid of this later -- uuid should be drawn from state
 
 import SetComponent from '../components/SetComponent';
 import ButtonComponent from '../components/ButtonComponent';
-import * as setActionCreators from '../actions/setActionCreators';
+import * as SetActions from '../actions/setAC';
 
 class StudySetsContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    console.log(this.props);
+    /* this.state = {
       studySetsList: ['biology', 'chemistry', 'algorithms'],
-    };
+    }; */
   }
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -20,15 +21,13 @@ class StudySetsContainer extends React.Component {
     return Object.assign({}, prevProps, prevState);
   };
 
-  handleClick = () => {
-    console.log('click!');
-    return setActionCreators.addSet({ title: 'dragon' });
-  };
+  handleClick = () => this.props.addSet('dragon');
 
   handleCardRendering = () => this.state.studySetsList.map(studySet =>
     <SetComponent name={studySet} key={uuid()} />);
 
   render() {
+    console.log(this.props);
     return (
       <div>
         { this.handleCardRendering() }
@@ -42,13 +41,13 @@ function mapStateToProps(state) {
   return state.set;
 }
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    setActionCreators.addSet,
-  }, dispatch);
-}
+const propTypes = {
+  addSet: PropTypes.func.isRequired,
+};
+
+StudySetsContainer.propTypes = propTypes;
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  SetActions,
 )(StudySetsContainer);

@@ -1,7 +1,6 @@
 import { SET } from './ActionTypes';
 import initializeType from '../utils/initializeType';
 
-
 export function addSet(payload) {
   return initializeType(payload, SET.CREATE);
 }

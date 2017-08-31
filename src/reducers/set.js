@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { Immutable } from 'seamless-immutable';
+import Immutable from 'seamless-immutable';
 import uuid from 'uuid/v1';
 
 import { SET } from '../actions/ActionTypes';
@@ -7,8 +7,9 @@ import { SET } from '../actions/ActionTypes';
 
 const defaultState = {};
 
-const addSet = (state = defaultState, action) =>
-  (_.merge({}, Immutable(state), { [uuid()]: action.payload }));
+function addSet(state = defaultState, action) {
+  return (_.merge({}, Immutable(state), {[uuid()]: action.payload}));
+}
 
 const updateSet = (state = defaultState, action) =>
   (_.merge({}, Immutable(state), action.payload));
