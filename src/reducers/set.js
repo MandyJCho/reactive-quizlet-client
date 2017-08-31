@@ -3,8 +3,11 @@ import uuid from 'uuid/v1';
 
 import { SET } from '../actions/ActionTypes';
 
-
 const defaultState = [];
+
+function getIndex(id, sets) {
+  return sets.findIndex(s => s.id === id);
+}
 
 function addSet(state = defaultState, action) {
   return (_.concat(state, {
@@ -15,14 +18,16 @@ function addSet(state = defaultState, action) {
 
 const updateSet = (state = defaultState, action) => {
   const newState = state;
-  const index = newState.findIndex(studySet => (studySet.id === action.payload.id));
-  
+  const index = getIndex(action.payload.id, newState);
   return newState.splice(index, 1, action.payload);
 };
 
-const deleteSet = (state = defaultState, action) =>
-  (_.omit({}, Immutable(state), action.payload));
+const deleteSet = (state = defaultState, action) => {
+  const newState = state;
+  const index = getIndex(action.payload.id, newState);
 
+  return newState.splice(index, 1);
+};
 
 export default function set(state = defaultState, action) {
   let nextState;
