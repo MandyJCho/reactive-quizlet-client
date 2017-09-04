@@ -40,5 +40,6 @@ export default function set(state = defaultState, action) {
       nextState = state;
   }
 
+  console.log(`nextState: ${nextState}`);
   return nextState;
 }

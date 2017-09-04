@@ -1,21 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import uuid from 'uuid/v1'; // get rid of this later -- uuid should be drawn from state
 
 import SetComponent from '../components/SetComponent';
 import ButtonComponent from '../components/ButtonComponent';
 import * as SetActions from '../actions/setAC';
 
 class StudySetsContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(this.props);
-    this.state = {
-      studySetsList: ['biology', 'chemistry', 'algorithms'],
-    };
-  }
-
   componentDidUpdate = (prevProps, prevState) => {
     console.log('Set container has rerendered');
     return Object.assign({}, prevProps, prevState);
@@ -23,11 +14,10 @@ class StudySetsContainer extends React.Component {
 
   handleClick = () => this.props.addSet('dragon');
 
-  handleCardRendering = () => this.state.studySetsList.map(studySet =>
-    <SetComponent name={studySet} key={uuid()} />);
+  handleCardRendering = () => this.props.set.map(studySet =>
+    <SetComponent name={studySet.title} key={studySet.id} />);
 
   render() {
-    console.log(this.props);
     return (
       <div>
         { this.handleCardRendering() }
@@ -38,11 +28,14 @@ class StudySetsContainer extends React.Component {
 }
 
 function mapStateToProps(state) {
-  return {set: state.set};
+  return { set: state.set };
 }
 
 const propTypes = {
   addSet: PropTypes.func.isRequired,
+  updateSet: PropTypes.func.isRequired,
+  deleteSet: PropTypes.func.isRequired,
+  set: PropTypes.array.isRequired,
 };
 
 StudySetsContainer.propTypes = propTypes;
