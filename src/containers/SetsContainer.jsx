@@ -18,9 +18,9 @@ class StudySetsContainer extends React.Component {
   handleRouteToCards = () => {};
 
   handleCardRendering = () => this.props.set.map(studySet => (
-    <SetComponent name={studySet.title} key={studySet.id}>
-      <Link>dlink</Link>
-    </SetComponent>
+    <Link to="">
+      <SetComponent name={studySet.title} key={studySet.id} />
+    </Link>
   ));
 
   render() {

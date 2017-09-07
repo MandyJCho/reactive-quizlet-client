@@ -14,7 +14,7 @@ function addSet(state = defaultState, action) {
   return (_.concat(state, {
     id: uuid(),
     urlKey: shortid.generate(),
-    title: action.payload,
+    title: action.payload.trim(),
   }));
 }
 

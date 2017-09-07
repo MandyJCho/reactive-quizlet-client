@@ -20,6 +20,7 @@
     "alert": true
   },
   "rules": {
+    "prefer-const": [1, {"destructuring": "any"}],
     "import/extensions": 0,
     "no-trailing-spaces": [2, { "skipBlankLines": true }],
     "object-curly-spacing": 1 ,
