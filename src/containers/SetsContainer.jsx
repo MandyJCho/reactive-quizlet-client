@@ -12,7 +12,12 @@ class StudySetsContainer extends React.Component {
     return Object.assign({}, prevProps, prevState);
   };
 
-  handleClick = () => this.props.addSet('dragon');
+
+  handleAddSet = () => this.props.addSet('dragon');
+
+  handleRouteToCards = () => {
+
+  };
 
   handleCardRendering = () => this.props.set.map(studySet =>
     <SetComponent name={studySet.title} key={studySet.id} />);
@@ -21,7 +26,7 @@ class StudySetsContainer extends React.Component {
     return (
       <div>
         { this.handleCardRendering() }
-        <ButtonComponent onClick={this.handleClick} text="+" />
+        <ButtonComponent onClick={this.handleAddSet()} text="+" />
       </div>
     );
   }

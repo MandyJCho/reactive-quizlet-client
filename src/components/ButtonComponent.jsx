@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton';
 
 const propTypes = {
   onClick: PropTypes.func.isRequired,
@@ -15,9 +13,7 @@ const defaultProps = {
 export default function ButtonComponent(props) {
   return (
     <div>
-      <MuiThemeProvider>
-        <RaisedButton backgroundColor="primary" onClick={props.onClick}>{props.text}</RaisedButton>
-      </MuiThemeProvider>
+      <button backgroundColor="primary" onClick={props.onClick}>{props.text}</button>
     </div>
   );
 }

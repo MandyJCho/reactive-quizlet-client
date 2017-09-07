@@ -4,8 +4,6 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import HeaderComponent from './components/HeaderComponent';
 import StudySetsContainer from './containers/SetsContainer';
@@ -17,16 +15,11 @@ let store = createStore(rootReducer);
 
 const mount = document.getElementById('root');
 
-function Quizlet() {
+export default function Quizlet() {
   return (
     <Provider store={store} >
       <div>
-        <HeaderComponent
-          muiTheme={getMuiTheme(lightBaseTheme)}
-          title="Reactive Quizlet"
-          showMenuIconButton={false}
-        />
-
+        <HeaderComponent title="Reactive Quizlet" />
         <StudySetsContainer />
       </div>
     </Provider>

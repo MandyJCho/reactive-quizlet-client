@@ -1,7 +1,10 @@
 TODO:
-X learn about subscribers
-- figure out schemas
-- add other reducers
-- research graphql
-- integrate reselect
-- connect set with store and subscribe
+- Add card dashboard
+- Add card to redux
+- Add graphql
+- Setup dynamodb and lambda connection
+
+Nice to haves:
+- Docker
+- Custom SCSS
+
