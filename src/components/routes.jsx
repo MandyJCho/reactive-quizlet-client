@@ -4,7 +4,7 @@ import {
   Route,
 } from 'react-router-dom';
 
-import Home from '../../index';
+import Home from '../index';
 
 
 export default function routes() {

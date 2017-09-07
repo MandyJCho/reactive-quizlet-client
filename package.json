@@ -38,6 +38,7 @@
     "reselect": "^3.0.1",
     "seamless-immutable": "^7.1.2",
     "semantic-ui-react": "^0.72.0",
+    "shortid": "^2.2.8",
     "uuid": "^3.1.0"
   },
   "devDependencies": {

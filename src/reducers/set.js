@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import uuid from 'uuid/v1';
+import shortid from 'shortid';
 
 import { SET } from '../actions/ActionTypes';
 
@@ -12,6 +13,7 @@ function getIndex(id, sets) {
 function addSet(state = defaultState, action) {
   return (_.concat(state, {
     id: uuid(),
+    urlKey: shortid.generate(),
     title: action.payload,
   }));
 }

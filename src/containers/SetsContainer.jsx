@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import SetComponent from '../components/SetComponent';
 import ButtonComponent from '../components/ButtonComponent';
@@ -12,15 +13,15 @@ class StudySetsContainer extends React.Component {
     return Object.assign({}, prevProps, prevState);
   };
 
-
   handleAddSet = () => this.props.addSet('dragon');
 
-  handleRouteToCards = () => {
+  handleRouteToCards = () => {};
 
-  };
-
-  handleCardRendering = () => this.props.set.map(studySet =>
-    <SetComponent name={studySet.title} key={studySet.id} />);
+  handleCardRendering = () => this.props.set.map(studySet => (
+    <SetComponent name={studySet.title} key={studySet.id}>
+      <Link>dlink</Link>
+    </SetComponent>
+  ));
 
   render() {
     return (
