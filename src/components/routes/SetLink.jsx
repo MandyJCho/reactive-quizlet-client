@@ -6,17 +6,20 @@ import getFlashcardLink from '../../utils/getFlashcardLink';
 import SetComponent from '../SetComponent';
 
 const propTypes = {
-  to: PropTypes.string,
-  children: PropTypes.node,
+  studySet: PropTypes.shape({
+    title: PropTypes.string,
+    id: PropTypes.string,
+  }),
 };
 
 export default function SetLink(props) {
   const toLink = getFlashcardLink(props.studySet);
-  const {title, id} = props.studySet;
+  const { title, id } = props.studySet;
   return (
     <Link to={toLink}>
       <SetComponent title={title} id={id} />
     </Link>
   );
-
 }
+
+SetLink.propTypes = propTypes;

@@ -13,7 +13,7 @@ const defaultProps = {
 export default function ButtonComponent(props) {
   return (
     <div>
-      <button backgroundColor="primary" onClick={props.onClick}>{props.text}</button>
+      <button onClick={props.onClick}>{props.text}</button>
     </div>
   );
 }
