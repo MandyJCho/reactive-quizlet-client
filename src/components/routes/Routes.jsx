@@ -5,9 +5,9 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import Home from '../index';
+import Home from '../../index';
 
-export default function routes() {
+export default function Routes() {
   return (
     <Router>
       <Switch>

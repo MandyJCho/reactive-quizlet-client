@@ -1,32 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import SetComponent from '../components/SetComponent';
+import LinkInjector from '../components/routes/SetLink';
 import ButtonComponent from '../components/ButtonComponent';
 import * as SetActions from '../actions/setAC';
 
 class StudySetsContainer extends React.Component {
-  componentDidUpdate = (prevProps, prevState) => {
-    console.log('Set container has rerendered');
-    return Object.assign({}, prevProps, prevState);
-  };
-
   handleAddSet = () => this.props.addSet('dragon');
 
-  handleRouteToCards = () => {};
+  generateSetList = () => this.props.set.map(studySet => (
 
-  handleCardRendering = () => this.props.set.map(studySet => (
-    <Link to="">
-      <SetComponent name={studySet.title} key={studySet.id} />
-    </Link>
   ));
 
   render() {
     return (
       <div>
-        { this.handleCardRendering() }
+        { this.generateSetList() }
         <ButtonComponent onClick={this.handleAddSet()} text="+" />
       </div>
     );

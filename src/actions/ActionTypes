@@ -1,7 +1,7 @@
 import getNamespaceActions from '../utils/getNamespaceActions';
 
 // CRUD
-export const CRUD = {
+const CRUD = {
   CREATE: 'CREATE',
   READ: 'READ',
   UPDATE: 'UPDATE',
@@ -10,3 +10,5 @@ export const CRUD = {
 
 // Namespaces
 export const SET = getNamespaceActions('SET', CRUD);
+
+export const CARD = getNamespaceActions('CARD', CRUD);

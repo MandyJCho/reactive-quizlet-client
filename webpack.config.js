@@ -33,12 +33,11 @@ module.exports = {
   module: {
     rules: loaders,
   },
+  devServer: {
+    historyApiFallback: true
+  },
   resolve: {
     extensions: ['.js', '.jsx', 'json'],
-    alias: {
-      Components : path.resolve(__dirname, 'src/components/'),
-      Containers : path.resolve(__dirname, 'src/containers/')
-    }
   },
   plugins: [
     new HTMLWebpackPlugin({

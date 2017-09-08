@@ -1,28 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import DeckContainer from './containers/DeckContainer';
-
 const propTypes = {
-  children: PropTypes.string,
-  name: PropTypes.string,
-  /* cards: PropTypes.arrayOf(PropTypes.shape({
-    term: PropTypes.string,
-    definition: PropTypes.string,
-  })), */
+  title: PropTypes.string,
 };
 
 const defaultProps = {
-  name: 'Study Set Name',
-  // cards: [{ term: 'term', definition: 'definition' }],
+  title: 'Study Set Name',
 };
 
 export default function StudySetComponent(props) {
-  console.log(`${props.name} has rendered`);
+  console.log(`${props.title} has rendered`);
   return (
     <div>
-      <div>{props.name}</div>
-      <div>{props.children}</div>
+      <div>{props.title}</div>
     </div>
   );
 }
