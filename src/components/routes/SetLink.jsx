@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+/* import React from 'react';
 import PropTypes from 'prop-types';
 
 import getFlashcardLink from '../../utils/getFlashcardLink';
@@ -23,3 +22,4 @@ export default function SetLink(props) {
 }
 
 SetLink.propTypes = propTypes;
+*/

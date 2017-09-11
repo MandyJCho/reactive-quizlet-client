@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import Router from 'react-router-dom';
 
 // import SetLink from '../components/routes/SetLink';
 import ButtonComponent from '../components/ButtonComponent';
 import * as SetActions from '../actions/setAC';
+
+const childContextTypes = {
+  router: PropTypes.object.isRequired,
+};
 
 const propTypes = {
   addSet: PropTypes.func.isRequired,
@@ -19,9 +24,7 @@ const propTypes = {
 }
 
 class SetsContainer extends React.Component {
-  static contextTypes = {
-    router: PropTypes.func.isRequired,
-  };
+  getChileContextTypes = () => ({ router: Router() });
 
   handleAddSet = () => this.props.addSet('dragon');
 
@@ -41,6 +44,7 @@ function mapStateToProps(state) {
   return { set: state.set };
 }
 
+SetsContainer.childContextTypes = childContextTypes;
 SetsContainer.propTypes = propTypes;
 
 export default connect(
