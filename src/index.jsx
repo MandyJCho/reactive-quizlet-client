@@ -6,7 +6,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 
 import HeaderComponent from './components/HeaderComponent';
-import StudySetsContainer from './containers/SetsContainer';
+import SetsContainer from './containers/SetsContainer';
 import rootReducer from './reducers/root';
 
 injectTapEventPlugin();
@@ -20,7 +20,7 @@ export default function Quizlet() {
     <Provider store={store} >
       <div>
         <HeaderComponent title="Reactive Quizlet" />
-        <StudySetsContainer />
+        <SetsContainer />
       </div>
     </Provider>
   );
