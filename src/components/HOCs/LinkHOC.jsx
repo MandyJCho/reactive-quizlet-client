@@ -1,9 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import { BrowserRouter as Router,
-  Route,
-  Link,
-} from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 const propTypes = {
   to: Proptypes.string.isRequired,
@@ -11,12 +8,12 @@ const propTypes = {
   path: Proptypes.string.isRequired,
 };
 
-export default function LinkHOC(props, context){
+export default function LinkHOC(props) {
   return (
-    <Router>
-      <Link to={props.to} >{props.children}</Link>
+    <div>
+      <Link to={props.to}>{props.children}</Link>
       <Route path={props.path} />
-    </Router>
+    </div>
   );
 }
 
