@@ -6,13 +6,13 @@ import { SET } from '../actions/ActionTypes';
 
 const defaultState = [];
 
-function getIndex(id, sets) {
-  return sets.findIndex(s => s.id === id);
+function getIndex(setID, sets) {
+  return sets.findIndex(s => s.setID === setID);
 }
 
 function addSet(state = defaultState, action) {
   return (_.concat(state, {
-    id: uuid(),
+    setID: uuid(),
     urlKey: shortid.generate(),
     title: action.payload.trim(),
   }));
