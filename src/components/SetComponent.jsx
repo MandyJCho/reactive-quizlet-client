@@ -4,17 +4,23 @@ import PropTypes from 'prop-types';
 const propTypes = {
   studySet: PropTypes.shape({
     title: PropTypes.string,
-    urlKey: PropTypes.string,
+    compKey: PropTypes.string,
   }),
 };
 
-export default function SetComponent(props) {
-  const { title, urlKey } = props.studySet;
-  return (
-    <div>
-      {title} {urlKey}
-    </div>
-  );
+export default class SetComponent extends React.Component {
+  shouldComponentUpdate(nextProps) {
+    return this.props.studySet.compKey !== nextProps.compKey;
+  }
+
+  render() {
+    const { title, compKey } = this.props.studySet;
+    return (
+      <div>
+        {title} {compKey}
+      </div>
+    );
+  }
 }
 
 SetComponent.propTypes = propTypes;

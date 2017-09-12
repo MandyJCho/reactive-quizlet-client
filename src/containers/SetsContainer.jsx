@@ -21,9 +21,9 @@ const propTypes = {
 
 class SetsContainer extends React.Component {
   getCardContainerLink = (set) => {
-    let { title, key } = set;
+    let { title, compKey } = set;
     title = title.replace(' ', '-');
-    return `/${key}/${title}-flashcards`;
+    return `/${compKey}/${title}-flashcards`;
   };
 
   handleAddSet = () => this.props.addSet('dragon');
@@ -31,14 +31,13 @@ class SetsContainer extends React.Component {
   generateSetList = () => this.props.set.map((studySet) => {
     const to = this.getCardContainerLink(studySet);
     const configs = {
-      keyComp: studySet.key,
       to,
     };
 
-    let SetLink = <SetComponent studySet={studySet} to={to} />;
+    let SetLink = <SetComponent studySet={studySet} />;
     SetLink = asLink(SetLink);
 
-    return <SetLink key={studySet.key} {...configs} />;
+    return <SetLink key={studySet.compKey} {...configs} />;
   });
 
   render() {
