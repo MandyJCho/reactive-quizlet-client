@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import FlashcardContainer from '../containers/CardsContainer';
+import CardsContainer from '../containers/CardsContainer';
 import getFlashcardLink from '../utils/getFlashcardLink';
 import withLink from '../components/HOCs/withLink';
 
@@ -18,7 +18,7 @@ export default function SetComponent(props) {
   return (
     <div>
       {title} {urlKey}
-      {withLink(FlashcardContainer, to)}
+      {withLink(CardsContainer, to)}
     </div>
   );
 }
