@@ -2,21 +2,19 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
+  // Switch,
 } from 'react-router-dom';
 
 import HomeComponent from '../HomeComponent';
-import ButtonComponent from '../ButtonComponent';
-import SetsContainer from '../../containers/SetsContainer';
+import SetRoutes from './SetRoutes';
 
 export default function Routes() {
   return (
     <Router>
-      <Switch>
+      <div>
         <Route exact path="/" component={HomeComponent} />
-        <Route path="/:id" component={SetsContainer} />
-        <Route path="/button" component={ButtonComponent} />
-      </Switch>
+        <Route path="/:id" component={SetRoutes} />
+      </div>
     </Router>
   );
 }

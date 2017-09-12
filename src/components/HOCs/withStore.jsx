@@ -8,7 +8,7 @@ import rootReducer from '../../reducers/root';
 let store = createStore(rootReducer);
 
 export default function withStore(Component, props) {
-  let Wrapper = () => (
+  const Wrapper = () => (
     <Provider store={store} >
       <Component {...props} />
     </Provider>

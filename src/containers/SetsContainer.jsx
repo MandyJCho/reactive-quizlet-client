@@ -21,7 +21,7 @@ const propTypes = {
 
 class SetsContainer extends React.Component {
   getCardContainerLink = (set) => {
-    let {title, urlKey} = set;
+    let { title, urlKey } = set;
     title = title.replace(' ', '-');
     return `/${urlKey}/${title}-flashcards`;
   };
