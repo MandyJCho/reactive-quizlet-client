@@ -10,7 +10,6 @@ const propTypes = {
 
 export default function SetComponent(props) {
   const { title, urlKey } = props.studySet;
-
   return (
     <div>
       {title} {urlKey}

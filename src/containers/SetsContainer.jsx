@@ -15,24 +15,30 @@ const propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       setID: PropTypes.string,
-      urlKey: PropTypes.string,
+      key: PropTypes.string,
     })).isRequired,
 };
 
 class SetsContainer extends React.Component {
   getCardContainerLink = (set) => {
-    let { title, urlKey } = set;
+    let { title, key } = set;
     title = title.replace(' ', '-');
-    return `/${urlKey}/${title}-flashcards`;
+    return `/${key}/${title}-flashcards`;
   };
 
   handleAddSet = () => this.props.addSet('dragon');
 
   generateSetList = () => this.props.set.map((studySet) => {
     const to = this.getCardContainerLink(studySet);
-    const component = <SetComponent key={studySet.setID} studySet={studySet} />;
+    const configs = {
+      keyComp: studySet.key,
+      to,
+    };
 
-    return asLink(component, to);
+    let SetLink = <SetComponent studySet={studySet} to={to} />;
+    SetLink = asLink(SetLink);
+
+    return <SetLink key={studySet.key} {...configs} />;
   });
 
   render() {

@@ -13,7 +13,7 @@ function getIndex(setID, sets) {
 function addSet(state = defaultState, action) {
   return (_.concat(state, {
     setID: uuid(),
-    urlKey: shortid.generate(),
+    key: shortid.generate(),
     title: action.payload.trim(),
   }));
 }
