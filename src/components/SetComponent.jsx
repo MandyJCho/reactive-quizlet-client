@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CardsContainer from '../containers/CardsContainer';
-import getFlashcardLink from '../utils/getFlashcardLink';
-import withLink from '../components/HOCs/withLink';
-
 const propTypes = {
   studySet: PropTypes.shape({
     title: PropTypes.string,
@@ -13,12 +9,11 @@ const propTypes = {
 };
 
 export default function SetComponent(props) {
-  const to = getFlashcardLink(props.studySet);
   const { title, urlKey } = props.studySet;
+
   return (
     <div>
       {title} {urlKey}
-      {withLink(CardsContainer, to)}
     </div>
   );
 }

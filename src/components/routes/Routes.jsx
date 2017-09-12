@@ -5,9 +5,9 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import HomeComponent from './HomeComponent';
-import ButtonComponent from './ButtonComponent';
-import SetsContainer from '../containers/SetsContainer';
+import HomeComponent from '../HomeComponent';
+import ButtonComponent from '../ButtonComponent';
+import SetsContainer from '../../containers/SetsContainer';
 
 export default function Routes() {
   return (

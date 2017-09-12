@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import SetComponent from '../components/SetComponent';
 import ButtonComponent from '../components/ButtonComponent';
 import * as SetActions from '../actions/setAC';
+import asLink from '../components/HOCs/asLink';
 
 const propTypes = {
   addSet: PropTypes.func.isRequired,
@@ -19,11 +20,20 @@ const propTypes = {
 };
 
 class SetsContainer extends React.Component {
+  getCardContainerLink = (set) => {
+    let {title, urlKey} = set;
+    title = title.replace(' ', '-');
+    return `/${urlKey}/${title}-flashcards`;
+  };
+
   handleAddSet = () => this.props.addSet('dragon');
 
-  generateSetList = () => this.props.set.map(studySet => (
-    <SetComponent key={studySet.setID} studySet={studySet} />
-  ));
+  generateSetList = () => this.props.set.map((studySet) => {
+    const to = this.getCardContainerLink(studySet);
+    const component = <SetComponent key={studySet.setID} studySet={studySet} />;
+
+    return asLink(component, to);
+  });
 
   render() {
     return (

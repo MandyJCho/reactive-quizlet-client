@@ -11,6 +11,3 @@ export default function HomeComponent() {
     </div>
   );
 }
-
-// wrap routes in store and router
-// create home component and link it via there
