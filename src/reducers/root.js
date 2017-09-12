@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import set from './set';
+import set from './sets';
 
 export default combineReducers({
   set,

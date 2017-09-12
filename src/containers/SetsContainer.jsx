@@ -1,15 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Router from 'react-router-dom';
 
-// import SetLink from '../components/routes/SetLink';
+import SetComponent from '../components/SetComponent';
 import ButtonComponent from '../components/ButtonComponent';
 import * as SetActions from '../actions/setAC';
-
-const childContextTypes = {
-  router: PropTypes.object.isRequired,
-};
 
 const propTypes = {
   addSet: PropTypes.func.isRequired,
@@ -21,15 +16,15 @@ const propTypes = {
       setID: PropTypes.string,
       urlKey: PropTypes.string,
     })).isRequired,
-}
+};
 
 class SetsContainer extends React.Component {
-  getChileContextTypes = () => ({ router: Router() });
-
   handleAddSet = () => this.props.addSet('dragon');
 
-  generateSetList = () => this.props.set.map(studySet => studySet);
-  /* link component goes here */
+  generateSetList = () => this.props.set.map(studySet => (
+    <SetComponent key={studySet.setID} studySet={studySet} />
+  ));
+
   render() {
     return (
       <div>
@@ -44,7 +39,6 @@ function mapStateToProps(state) {
   return { set: state.set };
 }
 
-SetsContainer.childContextTypes = childContextTypes;
 SetsContainer.propTypes = propTypes;
 
 export default connect(

@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function generateWrapper(Wrapper, Component) {
+export default function generateWrapper(Wrapper, Component, props) {
   return (
     <Wrapper>
-      <Component />
+      <Component {...props} />
     </Wrapper>);
 }

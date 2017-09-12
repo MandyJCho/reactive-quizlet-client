@@ -2,17 +2,15 @@ import React from 'react';
 
 import ButtonComponent from '../components/ButtonComponent';
 
-class CardContainer extends React.Component {
+export default class CardsContainer extends React.Component {
   handleClick = () => ('hey');
 
   render() {
     return (
       <div>
         <div>Hello</div>
-        <ButtonComponent text="+" />
+        <ButtonComponent text="+" onClick={this.handleClick} />
       </div>
     );
   }
 }
-
-export default CardContainer;

@@ -5,15 +5,15 @@ import {
   Switch,
 } from 'react-router-dom';
 
-import Home from '../../index';
-import FlashcardContainer from '../../containers/FlashcardContainer';
+import Home from '../index';
+import CardContainer from '../containers/CardsContainer';
 
 export default function Routes() {
   return (
     <Router>
       <Switch>
         <Route exact path="/latest" component={Home} />
-        <Route path="/:id/:name" component={FlashcardContainer} />
+        <Route path="/:id" component={CardContainer} />
       </Switch>
     </Router>
   );

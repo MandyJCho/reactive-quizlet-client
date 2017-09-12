@@ -1,22 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import FlashcardContainer from '../containers/CardsContainer';
+import getFlashcardLink from '../utils/getFlashcardLink';
+import withLink from '../components/HOCs/withLink';
+
 const propTypes = {
-  title: PropTypes.string,
+  studySet: PropTypes.shape({
+    title: PropTypes.string,
+    urlKey: PropTypes.string,
+  }),
 };
 
-const defaultProps = {
-  title: 'Study Set Name',
-};
-
-export default function StudySetComponent(props) {
-  console.log(`${props.title} has rendered`);
+export default function SetComponent(props) {
+  const to = getFlashcardLink(props.studySet);
+  const { title, urlKey } = props.studySet;
   return (
     <div>
-      <div>{props.title}</div>
+      {title} {urlKey}
+      {withLink(FlashcardContainer, to)}
     </div>
   );
 }
 
-StudySetComponent.propTypes = propTypes;
-StudySetComponent.defaultProps = defaultProps;
+SetComponent.propTypes = propTypes;
