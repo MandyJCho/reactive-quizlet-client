@@ -1,5 +1,5 @@
 import { CARD } from '../actions/ActionTypes';
-import { addState} from '../utils/CRUDutils';
+import { addState, modifyState } from '../utils/CRUDutils';
 
 const defaultState = [];
 
@@ -11,11 +11,12 @@ export default function cards(state = defaultState, action) {
       break;
     case (CARD.UPDATE):
     case (CARD.DELETE):
-
+      nextState = modifyState(state, action, CARD);
       break;
     default:
       nextState = state;
   }
 
+  console.log(`next cards: ${JSON.stringify(nextState)}`);
   return nextState;
 }

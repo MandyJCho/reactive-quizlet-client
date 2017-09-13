@@ -1,5 +1,5 @@
 import { SET } from '../actions/ActionTypes';
-import {addState, modifyState} from '../utils/CRUDutils';
+import { addState, modifyState } from '../utils/CRUDutils';
 
 const defaultState = [];
 
@@ -17,6 +17,6 @@ export default function sets(state = defaultState, action) {
       nextState = state;
   }
 
-  // console.log(`nextState: ${JSON.stringify(nextState)}`);
+  console.log(`next sets: ${JSON.stringify(nextState)}`);
   return nextState;
 }
