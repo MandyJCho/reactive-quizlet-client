@@ -2,18 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-export default function asLink(component) {
-  const propTypes = {
-    to: PropTypes.string.isRequired,
-  };
+const propTypes = {
+  to: PropTypes.string.isRequired,
+};
 
-  const WrapperLink = props => (
-    <Link to={props.to} style={{ backgroundColor: 'pink' }} >
-      {component}
-    </Link>
-  );
+export default function asLink(Component) {
+  const style = { backgroundColor: 'blue' };
 
-  WrapperLink.propTypes = propTypes;
+  class Wrapper extends React.Component {
+    shouldComponentUpdate(nextProps) {
+      return this.props.to !== nextProps.to;
+    }
 
-  return WrapperLink;
+    render() {
+      console.log('rendered!');
+      const {to, ...innerProps} = this.props;
+      return (
+        <Link to={to} style={style}>
+          <Component {...innerProps} />
+        </Link>
+      );
+    }
+  }
+
+  Wrapper.propTypes = propTypes;
+
+  return Wrapper;
 }

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import CardsContainer from '../containers/CardsContainer';
 
-
 const propTypes = {
   studySet: PropTypes.shape({
     title: PropTypes.string,

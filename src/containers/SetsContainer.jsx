@@ -19,6 +19,8 @@ const propTypes = {
     })).isRequired,
 };
 
+let SetLink = asLink(SetComponent);
+
 class SetsContainer extends React.Component {
   getCardContainerLink = (set) => {
     let { title, compKey } = set;
@@ -30,14 +32,7 @@ class SetsContainer extends React.Component {
 
   generateSetList = () => this.props.set.map((studySet) => {
     const to = this.getCardContainerLink(studySet);
-    const configs = {
-      to,
-    };
-
-    let SetLink = <SetComponent studySet={studySet} />;
-    SetLink = asLink(SetLink);
-
-    return <SetLink key={studySet.compKey} {...configs} />;
+    return <SetLink key={studySet.setID} to={to} studySet={studySet} />;
   });
 
   render() {
