@@ -14,7 +14,7 @@ const propTypes = {
   set: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
-      setID: PropTypes.string,
+      id: PropTypes.string,
       key: PropTypes.string,
     })).isRequired,
 };
@@ -28,11 +28,11 @@ class SetsContainer extends React.Component {
     return `/${compKey}/${title}-flashcards`;
   };
 
-  handleAddSet = () => this.props.addSet('dragon');
+  handleAddSet = () => this.props.addSet({ title: 'dragon' });
 
   generateSetList = () => this.props.set.map((studySet) => {
     const to = this.getCardContainerLink(studySet);
-    return <SetLink key={studySet.setID} to={to} studySet={studySet} />;
+    return <SetLink key={studySet.id} to={to} studySet={studySet} />;
   });
 
   render() {
