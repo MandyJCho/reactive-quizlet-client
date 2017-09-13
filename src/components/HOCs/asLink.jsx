@@ -15,7 +15,6 @@ export default function asLink(Component) {
     }
 
     render() {
-      console.log('rendered!');
       const {to, ...innerProps} = this.props;
       return (
         <Link to={to} style={style}>

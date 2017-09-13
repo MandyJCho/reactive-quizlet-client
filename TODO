@@ -3,8 +3,10 @@ TODO:
 - Add card to redux
 - Add graphql
 - Setup dynamodb and lambda connection
+- user authen
 
 Nice to haves:
 - Docker
 - Custom SCSS
+
 
