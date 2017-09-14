@@ -1,6 +1,5 @@
 import {
   GraphQLObjectType,
-  // GraphQLSchema,
   GraphQLList,
   GraphQLString,
   GraphQLNonNull,
@@ -11,7 +10,7 @@ import EntityType from './interfaces';
 export const Card = new GraphQLObjectType({
   name: 'Card',
   description: 'a flashcard within a set',
-  interfaces: { EntityType },
+  interfaces: [EntityType],
   fields: {
     id: { type: new GraphQLNonNull(GraphQLString) },
     term: { type: new GraphQLNonNull(GraphQLString) },
@@ -23,7 +22,7 @@ export const Card = new GraphQLObjectType({
 export const Set = new GraphQLObjectType({
   name: 'Set',
   description: 'Study set a user creates',
-  interfaces: { EntityType },
+  interfaces: [EntityType],
   fields: {
     title: GraphQLString,
     id: GraphQLString,
