@@ -34,7 +34,7 @@ module.exports = {
     rules: loaders,
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   resolve: {
     extensions: ['.js', '.jsx', 'json'],
