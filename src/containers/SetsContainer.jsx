@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import SetPickerComponent from '../components/SetPickerComponent';
 import ButtonComponent from '../components/ButtonComponent';
 import * as SetActions from '../actions/setAC';
-import asLink from '../components/HOCs/asLink';
 
 const propTypes = {
   addSet: PropTypes.func.isRequired,
@@ -19,8 +18,6 @@ const propTypes = {
     })).isRequired,
 };
 
-let SetLink = asLink(SetPickerComponent);
-
 class SetsContainer extends React.Component {
   getCardContainerLink = (set) => {
     let { title, compKey } = set;
@@ -32,7 +29,7 @@ class SetsContainer extends React.Component {
 
   generateSetList = () => this.props.set.map((studySet) => {
     const to = this.getCardContainerLink(studySet);
-    return <SetLink key={studySet.id} to={to} studySet={studySet} />;
+    return <SetPickerComponent key={studySet.id} to={to} studySet={studySet} />;
   });
 
   render() {

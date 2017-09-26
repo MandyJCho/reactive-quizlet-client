@@ -6,7 +6,7 @@ const propTypes = {
   to: PropTypes.string.isRequired,
 };
 
-export default function asLink(Component) {
+export default function asLink(LinkComponent, Component) {
   const style = { backgroundColor: 'blue' };
 
   class Wrapper extends React.Component {
@@ -15,6 +15,7 @@ export default function asLink(Component) {
     }
 
     render() {
+      console.log(this.props);
       const { to, ...innerProps } = this.props;
       return (
         <Link to={to} style={style}>
