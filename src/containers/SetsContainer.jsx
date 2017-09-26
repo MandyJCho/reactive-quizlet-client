@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import SetComponent from '../components/SetComponent';
+import SetPickerComponent from '../components/SetPickerComponent';
 import ButtonComponent from '../components/ButtonComponent';
 import * as SetActions from '../actions/setAC';
 import asLink from '../components/HOCs/asLink';
@@ -19,7 +19,7 @@ const propTypes = {
     })).isRequired,
 };
 
-let SetLink = asLink(SetComponent);
+let SetLink = asLink(SetPickerComponent);
 
 class SetsContainer extends React.Component {
   getCardContainerLink = (set) => {
