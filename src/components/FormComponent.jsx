@@ -8,9 +8,7 @@ const propTypes = {
 };
 
 export default class FormComponent extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  handleKeyPress = () => {};
 
   handleBlur = () => {};
 
@@ -25,5 +23,6 @@ export default class FormComponent extends React.Component {
       </div>
     );
   }
-
 }
+
+FormComponent.propTypes = propTypes;
