@@ -12,7 +12,6 @@ const propTypes = {
 
 function SetPickerComponent(props) {
   const {title} = props.studySet;
-
   return (<div>{title}</div>);
 }
 
