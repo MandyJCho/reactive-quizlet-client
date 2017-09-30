@@ -19,6 +19,17 @@ const propTypes = {
 };
 
 class SetsContainer extends React.Component {
+
+  getChildContextTypes = () => {
+    const actions = {
+      add: this.props.addSet,
+      delete: this.props.deleteSet,
+      update: this.props.updateSet,
+    };
+
+    return actions;
+  };
+
   getCardContainerLink = (set) => {
     let { title, compKey } = set;
     title = title.replace(' ', '-');
@@ -29,7 +40,10 @@ class SetsContainer extends React.Component {
 
   generateSetList = () => this.props.set.map((studySet) => {
     const to = this.getCardContainerLink(studySet);
-    return <SetPickerComponent key={studySet.id} to={to} studySet={studySet} />;
+    return <SetPickerComponent
+      key={studySet.id}
+      to={to}
+      studySet={studySet} />;
   });
 
   render() {
@@ -42,13 +56,8 @@ class SetsContainer extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { set: state.set };
-}
-
 SetsContainer.propTypes = propTypes;
 
 export default connect(
-  mapStateToProps,
   SetActions,
 )(SetsContainer);

@@ -1,0 +1,29 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import FormComponent from './FormComponent';
+
+const proptypes = {
+  term: PropTypes.string,
+  definition: PropTypes.string,
+  onclick: PropTypes.func
+};
+
+export default function CardComponent(props) {
+  return (
+    <div>
+      <div onclick={props.onclick} />
+      <FormComponent
+        header="term"
+        value={props.term}
+      />
+      <FormComponent
+        header="definition"
+        value={props.definition}
+      />
+    </div>
+  );
+}
+
+CardComponent.propTypes = proptypes;
+ console.log('hello')

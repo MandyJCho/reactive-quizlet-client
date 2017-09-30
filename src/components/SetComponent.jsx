@@ -33,3 +33,4 @@ export default class SetComponent {
 }
 
 SetComponent.propTypes = propTypes;
+

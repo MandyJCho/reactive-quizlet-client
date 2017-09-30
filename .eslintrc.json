@@ -17,7 +17,8 @@
     "window": true,
     "URLSearchParams": true,
     "Object": true,
-    "alert": true
+    "alert": true,
+    "store": true
   },
   "rules": {
     "prefer-const": [1, {"destructuring": "any"}],
