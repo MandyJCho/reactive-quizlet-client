@@ -8,7 +8,7 @@ export default function SetRoutes() {
   return (
     <div>
       <Switch>
-        <Route exact path="/:id/" component={SetsContainer} />
+        <Route exact path="/:id/" component={S} />
         <Route path="/id:/:name" component={SetComponent} />
       </Switch>
     </div>
