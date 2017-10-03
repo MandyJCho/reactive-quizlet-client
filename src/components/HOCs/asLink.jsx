@@ -7,7 +7,6 @@ const propTypes = {
 };
 
 export default function asLink(LinkComponent, Component) {
-  const style = { backgroundColor: 'blue' };
 
   class Wrapper extends React.Component {
     shouldComponentUpdate(nextProps) {
@@ -17,7 +16,7 @@ export default function asLink(LinkComponent, Component) {
     render() {
       const { to, ...innerProps } = this.props;
       return (
-        <Link to={to} style={style}>
+        <Link to={to}>
           <Component {...innerProps} />
         </Link>
       );

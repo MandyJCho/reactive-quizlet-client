@@ -1,4 +1,6 @@
 TODO:
+- FIX WHERE REDUX IS BEING CALLED
+
 - Add card dashboard
 - Add card to redux
 - Add graphql
