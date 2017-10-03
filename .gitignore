@@ -6,3 +6,4 @@ node_modules/
 
 #log files
 *.log
+src/.DS_Store
