@@ -2,7 +2,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 import rootReducer from '../../reducers/root';
-import generateHOC from './generateHOC';
+import generateHOC from './generatePureHOC';
 
 // eslint-disable-next-line prefer-const
 let store = createStore(rootReducer);
