@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/MandyJCho/reactive-quizlet#readme",
   "dependencies": {
+    "apollo-react": "^0.7.1",
     "dynogels": "^8.0.1",
     "graphql": "^0.10.5",
     "lodash": "^4.17.4",

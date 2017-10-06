@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-import SetPickerComponent from '../components/SetPickerComponent';
+import SetLinkComponent from '../components/LinkComponent';
 import ButtonComponent from '../components/ButtonComponent';
-import * as SetActions from '../actions/setAC';
 
 const propTypes = {
   addSet: PropTypes.func.isRequired,
@@ -19,37 +17,25 @@ const propTypes = {
 };
 
 class SetsContainer extends React.Component {
-
-  getChildContextTypes = () => {
-    const actions = {
-      add: this.props.addSet,
-      delete: this.props.deleteSet,
-      update: this.props.updateSet,
-    };
-
-    return actions;
-  };
-
-  getCardContainerLink = (set) => {
+  generateStudysetURL = (set) => {
     let { title, compKey } = set;
     title = title.replace(' ', '-');
     return `/${compKey}/${title}-flashcards`;
   };
 
-  handleAddSet = () => this.props.addSet({ title: 'dragon' });
-
-  generateSetList = () => this.props.set.map((studySet) => {
-    const to = this.getCardContainerLink(studySet);
-    return <SetPickerComponent
+  generateSetLinkList = () => this.props.set.map((studySet) => {
+    const to = this.generateStudysetURL(studySet);
+    return (<SetLinkComponent
       key={studySet.id}
       to={to}
-      studySet={studySet} />;
+      {...studySet}
+    />);
   });
 
   render() {
     return (
       <div>
-        { this.generateSetList() }
+        { this.generateSetLinkList() }
         <ButtonComponent onClick={this.handleAddSet} text="+" />
       </div>
     );
@@ -58,6 +44,3 @@ class SetsContainer extends React.Component {
 
 SetsContainer.propTypes = propTypes;
 
-export default connect(
-  SetActions,
-)(SetsContainer);

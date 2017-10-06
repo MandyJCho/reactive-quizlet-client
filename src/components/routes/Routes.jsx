@@ -6,7 +6,6 @@ import {
 } from 'react-router-dom';
 
 import HomeComponent from '../HomeComponent';
-// import SetRoutes from './SetRoutes';
 import SetComponent from '../SetComponent';
 
 export default function Routes() {
