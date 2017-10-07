@@ -4,20 +4,22 @@ import { Link } from 'react-router-dom';
 
 const propTypes = {
   to: PropTypes.string,
-  displayText: PropTypes.displayText,
+  displayText: PropTypes.string,
 };
 
-class LinkComponent extends React.PureComponent {
-    shouldComponentUpdate = nextProps => this.props.to !== nextProps.to;
+export default class LinkComponent extends React.Component {
+  shouldComponentUpdate = nextProps => this.props.to !== nextProps.to;
 
-    render() {
-      const {to, displayText, ...passProps} = this.props;
-      return (
+  render() {
+    const { to, displayText, ...passProps } = this.props;
+    return (
+      <div>
         <Link to={to} state={passProps}>
           {displayText}
         </Link>
-      );
-    }
+      </div>
+    );
+  }
 }
 
 LinkComponent.propTypes = propTypes;

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import CardsContainer from '../containers/CardsContainer';
 import TextFormComponent from './TextFormComponent';
 
 const propTypes = {
@@ -12,7 +11,7 @@ const propTypes = {
 };
 
 export default function SetComponent(props) {
-  const { id, title } = props.studySet;
+  const { title } = props.studySet;
   return (
     <div>
       {title}
@@ -21,7 +20,6 @@ export default function SetComponent(props) {
         formTitle="Header"
         value={title}
       />
-      <CardsContainer owner={id} />
     </div>
   );
 }

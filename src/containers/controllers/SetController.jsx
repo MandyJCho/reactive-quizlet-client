@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import SetActions from '../../actions/setAC';
+import * as SetActions from '../../actions/setAC';
 import SetComponent from '../../components/SetComponent';
+import CardsContainer from '../CardsContainer';
 
 const propTypes = {
   addSet: PropTypes.func.isRequired,
@@ -44,12 +45,15 @@ export default class SetController extends React.Component {
 
   render() {
     return (
-      <SetComponent
-        title={this.props.title}
-        onAdd={this.handleAdd}
-        onUpdate={this.handleUpdate}
-        onDelete={this.handleDelete}
-      />
+      <div>
+        <SetComponent
+          title={this.props.title}
+          onAdd={this.handleAdd}
+          onUpdate={this.handleUpdate}
+          onDelete={this.handleDelete}
+        />
+        <CardsContainer owner={this.props.id} />
+      </div>
     );
   }
 }

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { addSet } from '../actions/setAC';
-import SetLinkComponent from '../components/LinkComponent';
+import LinkComponent from '../components/LinkComponent';
 import ButtonComponent from '../components/ButtonComponent';
 
 const propTypes = {
-  addSet: PropTypes.func.isRequired,
-  set: PropTypes.arrayOf(
+  addSet: PropTypes.func,
+  sets: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
       id: PropTypes.string,
@@ -16,24 +16,25 @@ const propTypes = {
     })),
 };
 
-export default class SetsContainer extends React.Component {
+class SetLinkContainer extends React.Component {
   generateStudysetURL = (set) => {
     let { title, compKey } = set;
     title = title.replace(' ', '-');
     return `/${compKey}/${title}-flashcards`;
   };
 
-  generateSetLinkList = () => this.props.set.map((studySet) => {
+  generateSetLinkList = () => this.props.sets.map((studySet) => {
     const to = this.generateStudysetURL(studySet);
-    return (<SetLinkComponent
+    return (<LinkComponent
       key={studySet.id}
       to={to}
+      displayText={studySet.title}
       {...studySet}
     />);
   });
 
   handleAddSet = () => {
-    this.props.addSet();
+    this.props.addSet({title: 'Dragon'});
   };
 
   render() {
@@ -46,13 +47,14 @@ export default class SetsContainer extends React.Component {
   }
 }
 
-SetsContainer.propTypes = propTypes;
+SetLinkContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  return { set: state.set };
+  return { sets: state.sets };
 }
 
-connect(
+
+export default connect(
   mapStateToProps,
-  addSet,
-)(SetsContainer);
+  { addSet },
+)(SetLinkContainer);
