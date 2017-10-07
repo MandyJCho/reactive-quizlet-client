@@ -11,25 +11,19 @@ const propTypes = {
   }),
 };
 
-export default class SetComponent {
-  componentDidMount(){
-
-  }
-
-  render() {
-    const {id, title} = props.studySet;
-    return (
-      <div>
-        {title}
-        <TextFormComponent
-          placeholder="Studyset, chapter, unit"
-          formTitle="Header"
-          value={title}
-        />
-        <CardsContainer owner={id} />
-      </div>
-    );
-  }
+export default function SetComponent(props) {
+  const { id, title } = props.studySet;
+  return (
+    <div>
+      {title}
+      <TextFormComponent
+        placeholder="Studyset, chapter, unit"
+        formTitle="Header"
+        value={title}
+      />
+      <CardsContainer owner={id} />
+    </div>
+  );
 }
 
 SetComponent.propTypes = propTypes;

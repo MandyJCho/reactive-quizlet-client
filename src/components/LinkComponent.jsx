@@ -11,9 +11,9 @@ class LinkComponent extends React.PureComponent {
     shouldComponentUpdate = nextProps => this.props.to !== nextProps.to;
 
     render() {
-      const {to, displayText} = this.props;
+      const {to, displayText, ...passProps} = this.props;
       return (
-        <Link to={to}>
+        <Link to={to} state={passProps}>
           {displayText}
         </Link>
       );

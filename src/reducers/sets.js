@@ -17,6 +17,5 @@ export default function sets(state = defaultState, action) {
       nextState = state;
   }
 
-  console.log(`next sets: ${JSON.stringify(nextState)}`);
   return nextState;
 }

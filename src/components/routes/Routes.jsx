@@ -6,14 +6,14 @@ import {
 } from 'react-router-dom';
 
 import HomeComponent from '../HomeComponent';
-import SetComponent from '../SetComponent';
+import SetController from '../../containers/controllers/SetController';
 
 export default function Routes() {
   return (
     <Router>
       <div>
         <Route exact path="/" component={HomeComponent} />
-        <Route path="/:id/:routes" component={SetComponent} />
+        <Route path="/:id/:routes" component={SetController} />
       </div>
     </Router>
   );
