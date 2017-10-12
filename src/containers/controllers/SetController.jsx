@@ -7,9 +7,9 @@ import SetComponent from '../../components/SetComponent';
 import CardsContainer from '../CardsContainer';
 
 const propTypes = {
-  addSet: PropTypes.func,
-  updateSet: PropTypes.func,
-  deleteSet: PropTypes.func,
+  addSet: PropTypes.func.isRequired,
+  updateSet: PropTypes.func.isRequired,
+  deleteSet: PropTypes.func.isRequired,
   id: PropTypes.string,
 };
 
@@ -28,7 +28,7 @@ const propTypes = {
   }
  */
 
-export default class SetController extends React.Component {
+class SetController extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,6 +43,7 @@ export default class SetController extends React.Component {
   handleDelete = () => this.props.deleteSet({ id: this.props.id });
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <SetComponent
@@ -62,7 +63,7 @@ SetController.propTypes = propTypes;
 
 function mapStateToProps(state) { return { set: state.set }; }
 
-connect(
+export default connect(
   mapStateToProps,
   SetActions,
 )(SetController);
