@@ -12,3 +12,4 @@ export function updateSet(payload) {
 export function deleteSet(payload) {
   return initializeType(payload, SET.DELETE);
 }
+

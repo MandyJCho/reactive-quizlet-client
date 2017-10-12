@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/MandyJCho/reactive-quizlet#readme",
   "dependencies": {
+    "apollo-react": "^0.7.1",
     "dynogels": "^8.0.1",
     "graphql": "^0.10.5",
     "lodash": "^4.17.4",
@@ -33,6 +34,7 @@
     "react-redux": "^5.0.5",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
+    "react-router-prop-types": "0.0.2",
     "react-router-redux": "^4.0.8",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.7.2",

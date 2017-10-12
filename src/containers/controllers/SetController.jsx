@@ -1,30 +1,68 @@
 import React from 'react';
-import connect from 'react-redux';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-import { * as SetActions } from '../../'
+import * as SetActions from '../../actions/setAC';
+import SetComponent from '../../components/SetComponent';
+import CardsContainer from '../CardsContainer';
 
-// have this component wrap setcomponent and do lifecycle hooks here
-// do error handling here as well with react 16
+const propTypes = {
+  addSet: PropTypes.func,
+  updateSet: PropTypes.func,
+  deleteSet: PropTypes.func,
+  id: PropTypes.string,
+};
+
+/*  componentDidMount = () => {
+    // use apollo here to get title
+  }
+
+  componentDidReceiveProps = (nextProps) => {
+    this.setState();
+  }
+
+  shouldComponentUpdate = (nextProps, nextState) => this.props.title === nextState.title;
+
+  componentDidUpdate = () => {
+    // same with network refreshing for title
+  }
+ */
 
 export default class SetController extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+    };
+  }
 
-  handleAdd()
+  handleAdd = title => this.props.addSet({ title });
 
+  handleUpdate = title => this.props.updateSet({ id: this.props.id, title });
+
+  handleDelete = () => this.props.deleteSet({ id: this.props.id });
 
   render() {
-
+    return (
+      <div>
+        <SetComponent
+          title={this.state.title}
+          id={this.props.id}
+          onAdd={this.handleAdd}
+          onUpdate={this.handleUpdate}
+          onDelete={this.handleDelete}
+        />
+        <CardsContainer />
+      </div>
+    );
   }
 }
 
-// connect to redux here
-// SUBSCRIBE FROM HERE
+SetController.propTypes = propTypes;
 
-
-const mapStateToProps = (state) => {
-  return {set : state.set};
-}
+function mapStateToProps(state) { return { set: state.set }; }
 
 connect(
   mapStateToProps,
-
+  SetActions,
 )(SetController);

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import set from './sets';
+import sets from './sets';
 
 export default combineReducers({
-  set,
+  sets,
 });

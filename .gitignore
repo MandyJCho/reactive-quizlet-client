@@ -7,3 +7,9 @@ node_modules/
 #log files
 *.log
 src/.DS_Store
+
+#credentials and configurations
+configs/
+
+#serverless details
+src/server/setup/serverless.yml

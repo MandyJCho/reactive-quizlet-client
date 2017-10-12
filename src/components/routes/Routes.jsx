@@ -2,20 +2,19 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  // Switch,
+  Switch,
 } from 'react-router-dom';
 
-import HomeComponent from '../HomeComponent';
-// import SetRoutes from './SetRoutes';
-import SetComponent from '../SetComponent';
+import HomeComponent from '../HomePage';
+import EditPage from '../EditPage';
 
 export default function Routes() {
   return (
     <Router>
-      <div>
+      <Switch>
         <Route exact path="/" component={HomeComponent} />
-        <Route path="/:id/:routes" component={SetComponent} />
-      </div>
+        <Route path="/:id" component={EditPage} />
+      </Switch>
     </Router>
   );
 }
