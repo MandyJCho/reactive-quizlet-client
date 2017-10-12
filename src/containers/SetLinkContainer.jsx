@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import { addSet } from '../actions/setAC';
 import LinkComponent from '../components/LinkComponent';
-import ButtonComponent from '../components/ButtonComponent';
 
 const propTypes = {
   addSet: PropTypes.func,
@@ -33,15 +32,13 @@ class SetLinkContainer extends React.Component {
     />);
   });
 
-  handleAddSet = () => {
-    this.props.addSet({title: 'Dragon'});
-  };
-
   render() {
     return (
       <div>
         { this.generateSetLinkList() }
-        <ButtonComponent onClick={this.handleAddSet} text="+" />
+        <LinkComponent to="/create-page" >
+          create
+        </LinkComponent>
       </div>
     );
   }
@@ -52,7 +49,6 @@ SetLinkContainer.propTypes = propTypes;
 function mapStateToProps(state) {
   return { sets: state.sets };
 }
-
 
 export default connect(
   mapStateToProps,

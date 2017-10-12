@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 import TextFormComponent from './TextFormComponent';
 
 const propTypes = {
-  studySet: PropTypes.shape({
-    id: PropTypes.string,
-    title: PropTypes.string,
-  }),
+  id: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default function SetComponent(props) {
-  const { title } = props.studySet;
+  const { title, id } = props;
+  console.log(id);
   return (
     <div>
       {title}

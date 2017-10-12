@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 const propTypes = {
   to: PropTypes.string,
   displayText: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default class LinkComponent extends React.Component {
@@ -15,7 +16,7 @@ export default class LinkComponent extends React.Component {
     return (
       <div>
         <Link to={to} state={passProps}>
-          {displayText}
+          {this.props.children || displayText}
         </Link>
       </div>
     );

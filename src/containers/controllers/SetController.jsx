@@ -7,10 +7,9 @@ import SetComponent from '../../components/SetComponent';
 import CardsContainer from '../CardsContainer';
 
 const propTypes = {
-  addSet: PropTypes.func.isRequired,
-  updateSet: PropTypes.func.isRequired,
-  deleteSet: PropTypes.func.isRequired,
-  title: PropTypes.string,
+  addSet: PropTypes.func,
+  updateSet: PropTypes.func,
+  deleteSet: PropTypes.func,
   id: PropTypes.string,
 };
 
@@ -47,12 +46,13 @@ export default class SetController extends React.Component {
     return (
       <div>
         <SetComponent
-          title={this.props.title}
+          title={this.state.title}
+          id={this.props.id}
           onAdd={this.handleAdd}
           onUpdate={this.handleUpdate}
           onDelete={this.handleDelete}
         />
-        <CardsContainer owner={this.props.id} />
+        <CardsContainer />
       </div>
     );
   }
