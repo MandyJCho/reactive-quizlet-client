@@ -28,6 +28,7 @@ export default class TextFormComponent extends React.Component {
           value={this.props.value}
           onBlur={this.handleBlur}
           onKeyPress={this.handleEnterKeyPress}
+          ref={(elm) => { this.textInput = elm; }}
         />
         {this.props.formTitle}
       </div>
