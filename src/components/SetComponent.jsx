@@ -18,6 +18,7 @@ export default function SetComponent(props) {
         placeholder="Studyset, chapter, unit"
         formTitle="Header"
         value={title}
+        name="title"
       />
     </div>
   );

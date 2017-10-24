@@ -6,16 +6,33 @@ const propTypes = {
   placeholder: PropTypes.string,
   formTitle: PropTypes.string,
   value: PropTypes.string,
+  name: PropTypes.string.isRequired,
 };
 
 export default class TextFormComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.name = this.props.name;
+    this.state = {
+      [this.name]: this.props.value,
+    };
+  }
   handleBlur = () => {
-    // set state here in redux to match
-
+    console.log('blurred');
+    
   };
 
-  handleEnterKeyPress = () => {
-    // check for enter
+  handleChange = (event) => {
+    const { value: val} = event.target;
+    this.setState({[this.name]: val });
+    console.log(this.state);
+  };
+
+  handleKeyDown= (event) => {
+    const { keyCode } = event;
+    if (keyCode === 13 || keyCode === 27) {
+      this.handleBlur(event);
+    }
   };
 
   // route to redux updating statement
@@ -25,12 +42,15 @@ export default class TextFormComponent extends React.Component {
       <div>
         <input
           placeholder={this.props.placeholder}
-          value={this.props.value}
+          value={this.state[this.name]}
           onBlur={this.handleBlur}
-          onKeyPress={this.handleEnterKeyPress}
-          ref={(elm) => { this.textInput = elm; }}
+          onKeyDown={this.handleKeyDown}
+          onChange={this.handleChange}
         />
-        {this.props.formTitle}
+        <div>
+          {this.state[this.name] || this.props.formTitle}
+        </div>
+        <br />
       </div>
     );
   }
