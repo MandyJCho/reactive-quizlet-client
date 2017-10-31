@@ -2,9 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-  components: PropTypes.array,
+  data: PropTypes.array,
+  Component: PropTypes.element,
 }
 
-function ListComponent(props) {
+function ListComponent(outProps) {
+  const { data, Component } = outProps;
 
+  const list = components.map((configs) => {
+    const { key, ...props } = configs;
+    return (
+      <li key={key}>
+        <Component {...props} />
+      </li>
+    );
+  });
+
+  return (
+    <ul>
+      {list}
+    </ul>
+  );
 }
