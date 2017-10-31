@@ -13,3 +13,4 @@ configs/
 
 #serverless details
 src/server/setup/serverless.yml
+test/

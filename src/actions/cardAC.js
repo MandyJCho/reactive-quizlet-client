@@ -11,3 +11,7 @@ export function updateCard(payload) {
 export function deleteCard(payload) {
   return {payload, type: CARD.DELETE};
 }
+
+export function deleteCardsInSet(payload) {
+ return {payload, type: CARD.DELETEALL};
+}

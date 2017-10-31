@@ -19,12 +19,11 @@ export default class TextFormComponent extends React.Component {
   }
   handleBlur = () => {
     console.log('blurred');
-    
   };
 
   handleChange = (event) => {
     const { value: val} = event.target;
-    this.setState({[this.name]: val });
+    this.setState({ [this.name]: val });
     console.log(this.state);
   };
 

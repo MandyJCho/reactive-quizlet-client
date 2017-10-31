@@ -26,4 +26,3 @@ export default function CardComponent(props) {
 }
 
 CardComponent.propTypes = proptypes;
- console.log('hello')

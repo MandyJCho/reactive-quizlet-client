@@ -12,3 +12,4 @@ const CRUD = {
 export const SET = getNamespaceActions('SET', CRUD);
 
 export const CARD = getNamespaceActions('CARD', CRUD);
+CARD.DELETEALL = 'DELETEALL';

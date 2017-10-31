@@ -6,6 +6,8 @@ import TextFormComponent from './TextFormComponent';
 const propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
+  addSet: PropTypes.func.isRequired,
+  updateSet: PropTypes.func.isRequired,
 };
 
 export default function SetComponent(props) {
@@ -13,7 +15,6 @@ export default function SetComponent(props) {
   console.log(id);
   return (
     <div>
-      {title}
       <TextFormComponent
         placeholder="Studyset, chapter, unit"
         formTitle="Header"
